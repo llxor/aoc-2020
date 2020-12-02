@@ -16,7 +16,9 @@ int main() {
       if (password[j] == 0) break;
     }
 
-    if (min <= lettercount && lettercount <= max) count++;
+    if (min <= lettercount && lettercount <= max) {
+      count++;
+    }
   }
 
   printf("%d\n", count);

@@ -11,7 +11,9 @@ int main() {
     fgets(buffer, sizeof buffer, stdin);
     sscanf(buffer, "%d-%d %c: %s", &min, &max, &c, password);
 
-    if ((password[min-1] == c) ^ (password[max-1] == c)) count++;
+    if ((password[min-1] == c) ^ (password[max-1] == c)) {
+      count++;
+    }
   }
 
   printf("%d\n", count);
