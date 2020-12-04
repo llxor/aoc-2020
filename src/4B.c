@@ -66,10 +66,10 @@ int main() {
     }
 
     if (length >= 14) {
-      int flag = 1, fail;
+      int flag = 1;
 
       #define tok_equals(str) strcmp(tokens[i], str) == 0
-      #define clear_flag { flag = 0; fail = __LINE__; break; }
+      #define clear_flag { flag = 0; break; }
 
       for (int i = 0; i < length; i += 2) {
         char *rest, *str = &tokens[i][0];
