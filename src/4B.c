@@ -54,7 +54,7 @@ int main() {
 
     // split into tokens
     char *tokens[100] = {};
-    int length = split_by_chars(tokens, 100, passport, " :\n");
+    int length = split_by_chars(tokens, 100, passport, " :\n") - 1;
 
     // check tokens
     if (length >= 14) {
