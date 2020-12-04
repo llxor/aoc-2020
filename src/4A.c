@@ -1,5 +1,6 @@
 #include "stdio.h"
 #include "string.h"
+#include "stringx.h"
 
 int main() {
   char buffer[1000] = "";
@@ -7,6 +8,9 @@ int main() {
   int count = 0, exit = 0;
 
   while (!exit) {
+    passport[0] = '\0';
+
+    // read in passport
     while (1) {
       if (fgets(buffer, sizeof buffer, stdin) == NULL) {
         exit = 1;
@@ -18,41 +22,27 @@ int main() {
       strcat(passport, buffer);
     }
 
-    int length = 0;
-    char *tokens[100] = {}, *ptr = &passport[0];
+    // split into tokens
+    char *tokens[100] = {};
+    int length = split_by_chars(tokens, 100, passport, " :\n") - 1;
 
-    for (int i = 0; i < sizeof passport; i++) {
-      if (passport[i] == '\0') {
-        break;
-      }
-
-      if ((passport[i] == ' ') || (passport[i] == '\n') || (passport[i] == ':')) {
-        tokens[length++] = ptr;
-        passport[i] = '\0';
-        ptr = &passport[i + 1];
-      }
-    }
-
-    if (length == 16) {
-      count++;
-    }
-
-    else if (length == 14) {
+    // check tokens
+    if (length >= 14) {
       int flag = 1;
 
-      for (int i = 0; i < length; i += 2) {
-        if (strcmp(tokens[i], "cid") == 0) {
-          flag = 0;
-          break;
+      if (length == 14) {
+        for (int i = 0; i < length; i += 2) {
+          if (streql(tokens[i], "cid")) {
+            flag = 0;
+            break;
+          }
         }
       }
 
       if (flag) {
         count++;
-      } 
+      }
     }
-
-    passport[0] = '\0';
   }
 
   printf("%d\n", count);
