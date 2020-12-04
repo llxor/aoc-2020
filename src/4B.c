@@ -1,6 +1,7 @@
 #include "stdio.h"
 #include "stdlib.h"
 #include "string.h"
+#include "stringx.h"
 
 int valid_height(int v, char *suffix) {
   if (strcmp(suffix, "cm") == 0) { return 150 <= v && v <= 193; }
@@ -39,6 +40,7 @@ int main() {
   while (!exit) {
     passport[0] = '\0';
 
+    // read passport
     while (1) {
       if (fgets(buffer, sizeof buffer, stdin) == NULL) {
         exit = 1;
@@ -50,25 +52,16 @@ int main() {
       strcat(passport, buffer);
     }
 
-    int length = 0;
-    char *tokens[100] = {}, *ptr = &passport[0];
+    // split into tokens
+    char *tokens[100] = {};
+    int length = split_by_chars(tokens, 100, passport, " :\n");
 
-    for (int i = 0; i < sizeof passport; i++) {
-      if (passport[i] == '\0') {
-        break;
-      }
-
-      if ((passport[i] == ' ') || (passport[i] == '\n') || (passport[i] == ':')) {
-        tokens[length++] = ptr;
-        passport[i] = '\0';
-        ptr = &passport[i + 1];
-      }
-    }
-
+    // check tokens
     if (length >= 14) {
       int flag = 1;
 
       #define tok_equals(str) strcmp(tokens[i], str) == 0
+      #define in_range(a, b) (a <= v && v <= b)
       #define clear_flag { flag = 0; break; }
 
       for (int i = 0; i < length; i += 2) {
@@ -76,9 +69,9 @@ int main() {
         int v = strtol(tokens[i + 1], &rest, 10);
 
              if (tok_equals("cid") && length == 14) clear_flag
-        else if (tok_equals("byr") && !(1920 <= v && v <= 2002) && *rest == '\0') clear_flag
-        else if (tok_equals("iyr") && !(2010 <= v && v <= 2020) && *rest == '\0') clear_flag
-        else if (tok_equals("eyr") && !(2020 <= v && v <= 2030) && *rest == '\0') clear_flag
+        else if (tok_equals("byr") && !in_range(1920, 2002)) clear_flag
+        else if (tok_equals("iyr") && !in_range(2010, 2020)) clear_flag
+        else if (tok_equals("eyr") && !in_range(2020, 2030)) clear_flag
         else if (tok_equals("hgt") && !valid_height(v, rest)) clear_flag
         else if (tok_equals("hcl") && !valid_hair_color(rest)) clear_flag
         else if (tok_equals("ecl") && !valid_eye_color(rest)) clear_flag
