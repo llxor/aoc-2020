@@ -1,6 +1,6 @@
 #include "stdio.h"
 #include "string.h"
-#include "stringx.h"
+#include "lib.h"
 
 int main() {
   char buffer[1000] = "";
