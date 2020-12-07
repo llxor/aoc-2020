@@ -106,3 +106,18 @@ size_t split_by_chars(char **array, size_t n_elems, char *src, const char *delim
 
   return array_len;
 }
+
+size_t hash(const char *src)
+{
+  size_t prime = 0x100000001B3;
+  size_t hash = 0xcbf29ce484222325;
+
+  while (*src != '\0')
+  {
+    hash ^= *src;
+    hash *= prime;
+    src++;
+  }
+
+  return hash;
+}
