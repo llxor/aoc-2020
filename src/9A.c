@@ -13,20 +13,17 @@ int main()
   int back = 25;
 
   for (int i = back; i < len; i++) {
-    char ok = 0;
-
     for (int j = i - back; j < i; j++) {
       for (int k = j + 1; k < i; k++) {
         if (numbers[j] + numbers[k] == numbers[i]) {
-          ok = 1;
-          break;
+          goto next;
         }
       }
     }
 
-    if (!ok) {
-      printf("%d\n", numbers[i]);
-      return 0;
-    }
+    printf("%d\n", numbers[i]);
+    return 0;
+
+    next: continue;
   }
 }
