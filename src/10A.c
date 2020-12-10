@@ -1,9 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-int cmp(const void *a, const void *b) {
-  return *(int*)a - *(int*)b;
-}
+#include <string.h>
 
 int main()
 {
@@ -15,7 +12,7 @@ int main()
     sscanf(buffer, "%d", &numbers[len++]);
   }
 
-  qsort(numbers, len, sizeof *numbers, cmp);
+  qsort(numbers, len, sizeof *numbers, strcmp);
   int diff_one = 0, diff_three = 1;
 
   for (int i = 1; i < len; i++) {

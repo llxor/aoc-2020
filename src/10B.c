@@ -1,10 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int cmp(const void *a, const void *b) {
-  return *(int*)a - *(int*)b;
-}
-
 char saved[1000] = {};
 size_t table[1000] = {};
 
@@ -43,6 +39,6 @@ int main()
     sscanf(buffer, "%d", &numbers[len++]);
   }
 
-  qsort(numbers, len, sizeof *numbers, cmp);
+  qsort(numbers, len, sizeof *numbers, strcmp);
   printf("%zu\n", combinations(numbers, len)); 
 }
