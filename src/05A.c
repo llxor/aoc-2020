@@ -1,5 +1,5 @@
-#include "stdio.h"
-#include "string.h"
+#include <stdio.h>
+#include <string.h>
 
 int binary_search(const char *code, size_t len, const char *key) {
   char lower = key[0], upper = key[1];
