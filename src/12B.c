@@ -3,9 +3,8 @@
 
 int main()
 {
-  char buffer[100] = {};
-  char instr;
-  int X = 0, Y = 0, WX = 10, WY = 1, N, angle;
+  char buffer[100] = {}, instr;
+  int X = 0, Y = 0, WX = 10, WY = 1, N;
 
   int sin[4] = {0, 1, 0, -1};
   int cos[4] = {1, 0, -1, 0};
@@ -13,7 +12,7 @@ int main()
   while (fgets(buffer, sizeof buffer, stdin) != NULL)
   {
     sscanf(buffer, "%c%d", &instr, &N);
-    angle = 0;
+    int angle = 0;
 
     switch(instr) {
       case 'N': { WY += N; break; }

@@ -3,11 +3,10 @@
 
 int main()
 {
-  char buffer[100] = {};
-  char instr;
+  char buffer[100] = {}, instr;
   int X = 0, Y = 0, N;
 
-  typedef enum { NORTH, EAST, SOUTH, WEST } direction;
+  typedef enum {NORTH, EAST, SOUTH, WEST} direction;
   direction D = EAST;
 
   while (fgets(buffer, sizeof buffer, stdin) != NULL)
