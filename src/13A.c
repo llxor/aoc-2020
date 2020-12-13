@@ -16,12 +16,14 @@ int main()
     src = NULL;
   }
 
-  for (int t = timestamp;; t++) {
-    for (int i = 0; i < len; i++) {
-      if (t % numbers[i] == 0) {
-        printf("%d\n", (t - timestamp) * numbers[i]);
-        return 0;
-      }
+  int ans, t = numbers[0];
+
+  for (int i = 0; i < len; i++) {
+    int p = numbers[i] - (timestamp % numbers[i]);
+    if (p < t) {
+      t = p, ans = p * numbers[i];
     }
   }
+
+  printf("%d\n", ans);
 }
