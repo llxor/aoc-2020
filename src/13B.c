@@ -6,7 +6,7 @@ int main()
   int timestamp, numbers[100], len = 0, counts[100], count = 0;
   char buffer[1000], *tok, *src = buffer;
 
-  scanf("%d\n", &timestamp); // ingored
+  scanf("%d\n", &timestamp); // ignored
   fgets(buffer, sizeof buffer, stdin);
 
   while ((tok = strtok(src, ","))) {
