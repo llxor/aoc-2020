@@ -1,6 +1,13 @@
 # AOC 2020
-My Solutions to the Advent of Code 2020, written in pure C. Run a program using:
+My Solutions to the Advent of Code 2020
+
+Days 1 -> 13 are written in pure C. Run a program using:
 ```
 $ clang src/01A.c -Isrc
 $ ./a.out < input/01.in
+```
+
+Days 14 -> 25 are written in [Pike](https://pike.lysator.liu.se/). Run a program using:
+```
+$ pike src/14A.pike < input/14.in
 ```
