@@ -1,7 +1,7 @@
 import Stdio;
 
 int main() {
-  int current = 0, turn = 1;
+  int current = 0, next, turn = 1;
   mapping history = ([]);
   string input = stdin->gets();
 
@@ -11,8 +11,6 @@ int main() {
   }
 
   while (turn < 2020) {
-    int next;
-
     if (history[current] == 0) {
       next = 0;
     } else {
