@@ -12,11 +12,7 @@ int main()
   }
 
   while (turn < 2020) {
-    if (history[current] == 0)
-      next = 0;
-    else
-      next = turn - history[current];
-
+    next = (turn - history[current]) % turn;
     history[current] = turn++;
     current = next;
   }
