@@ -1,8 +1,14 @@
 import Stdio;
 
-class range { int min1, max1, min2, max2; }
+class range {
+  int min1, max1, min2, max2;
+  bool contains(int x) {
+    return (min1 <= x && x <= max1) || (min2 <= x && x <= max2);
+  }
+}
 
-int main() {
+int main()
+{
   string data = stdin->read();
   array chunks = data / "\n\n";
 
@@ -18,18 +24,11 @@ int main() {
   foreach ((chunks[2] / "\n")[1..], string ticket) {
     array nums = ticket / ","; 
 
-    foreach (nums, string|int num) {
-      bool ok = false;
+    foreach (nums, mixed num) {
       sscanf(num, "%d", num);
+      function check = lambda(range r) {return r.contains(num);};
 
-      foreach (values(fields), range r) {
-        if ((r->min1 <= num && num <= r->max1) || (r->min2 <= num && num <= r->max2)) {
-          ok = true;
-          break;
-        }
-      }
-
-      if (!ok) {
+      if (Array.all(map(values(fields), check), `==, false)) {
         invalid += num;
         break;
       }

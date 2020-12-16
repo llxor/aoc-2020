@@ -1,8 +1,14 @@
 import Stdio;
 
-class range { int min1, max1, min2, max2; }
+class range {
+  int min1, max1, min2, max2;
+  bool contains(int x) {
+    return (min1 <= x && x <= max1) || (min2 <= x && x <= max2);
+  }
+}
 
-int main() {
+int main()
+{
   string data = stdin->read();
   array chunks = data / "\n\n";
 
@@ -13,38 +19,25 @@ int main() {
     fields[key] = r;
   }
 
-  array(array | string) position = allocate(sizeof(values(fields)));
-  for (int i = 0; i < sizeof(position); i++) {
-    position[i] = ({});
-  }
-
+  array position = allocate(sizeof(values(fields)), ({}));
   function to_int = lambda(string s) { sscanf(s, "%d\n", int n); return n; };
 
   foreach ((chunks[2] / "\n")[1..], string ticket) {
     array nums = map(ticket / ",", to_int); 
     bool invalid = false;
 
-    foreach (nums, string|int num) {
-      bool ok = false;
+    foreach (nums, mixed num) {
+      function check = lambda(range r) {return r.contains(num);};
 
-      foreach (values(fields), range r) {
-        if ((r->min1 <= num && num <= r->max1) || (r->min2 <= num && num <= r->max2)) {
-          ok = true;
-          break;
-        }
-      }
-
-      if (!ok) {
+      if (Array.all(map(values(fields), check), `==, false)) {
         invalid = true;
         break;
       }
     }
 
     if (!invalid) {
-      int i = 0;
-      foreach (nums, int num) {
-        position[i] = Array.push(position[i], num);
-        i++;
+      foreach (indices(nums), int i) {
+        position[i] = Array.push(position[i], nums[i]);
       }
     }
   }
@@ -53,8 +46,9 @@ int main() {
     array(string) possible = ({});
     foreach (indices(fields), string field) {
       range r = fields[field];
-      function in_range = lambda(int i) { return (r->min1 <= i && i <= r->max1) || (r->min2 <= i && i <= r->max2); };
-      if (Array.all(map(position[key], in_range), `==, true)) {
+      function check = lambda(int i) {return r.contains(i);};
+
+      if (Array.all(map(position[key], check), `==, true)) {
         possible = Array.push(possible, field);
       }
     }
