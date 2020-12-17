@@ -34,26 +34,26 @@ int main()
               for (int dk = -1; dk <= 1; dk++)
                 count += grid[i+di][j+dj][k+dk] == '#';
 
-         if (value == '#') {
-           count--;
-           if (count != 2 && count != 3) {
-             next[i][j][k] = '.';
-             active--;
-           }
-         }
+          if (value == '#') {
+            count--;
+            if (count != 2 && count != 3) {
+              next[i][j][k] = '.';
+              active--;
+            }
+          }
 
-         else {
-           if (count == 3) {
-             next[i][j][k] = '#';
-             active++;
-             if (i < min_depth) min_depth = i;
-             if (i > max_depth) max_depth = i;
-             if (j < min_height) min_height = j;
-             if (j > max_height) max_height = j;
-             if (k < min_width) min_width = k;
-             if (k > max_width) max_width = k;
-           }
-         }
+          else {
+            if (count == 3) {
+              next[i][j][k] = '#';
+              active++;
+              if (i < min_depth) min_depth = i;
+              if (i > max_depth) max_depth = i;
+              if (j < min_height) min_height = j;
+              if (j > max_height) max_height = j;
+              if (k < min_width) min_width = k;
+              if (k > max_width) max_width = k;
+            }
+          }
         }
       }
     }
