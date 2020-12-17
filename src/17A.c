@@ -2,7 +2,7 @@
 
 int main()
 {
-  const int size = 20;
+  const int size = 25;
   char grid[size][size][size] = {};
   char next[size][size][size] = {};
 
