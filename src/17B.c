@@ -1,8 +1,8 @@
 #import <stdio.h>
-#define size 22
 
-int main() {
-  char buffer[100] = {};
+int main()
+{
+  const int size = 20;
   char grid[size][size][size][size] = {};
   char next[size][size][size][size] = {};
 
@@ -11,6 +11,8 @@ int main() {
       min_depth = size/2, max_depth = size/2,
       min_forth = min_depth, max_forth = max_depth,
       active = 0;
+
+  char buffer[100] = {};
 
   for (int i = min_height; i <= max_height; i++) {
     fgets(buffer, sizeof buffer, stdin);
