@@ -1,5 +1,5 @@
 # AOC 2020
-Days 1 to 13 are written in pure C. Run a program using:
+Days 1 to 13 and 17 to 18 are written in pure C. Run a program using:
 ```
 $ clang src/01A.c -Isrc
 $ ./a.out < input/01
