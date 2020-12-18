@@ -10,8 +10,8 @@ long parse_expr(char *expr, char **end)
   {
     switch (*expr)
     {
-      case '+': { op = '+'; expr++; break; }
-      case '*': { op = '*'; expr++; break; }
+      case '+':
+      case '*': { op = *expr++; break; }
       default:  {
         int val;
 
