@@ -1,10 +1,8 @@
 #import <stdio.h>
 #import <stdlib.h>
-#import <stdbool.h>
 
 typedef struct {unsigned char value, ptrs[2][3], options, len;} rule_t;
 typedef struct {const char *end[8]; char len;} array_t;
-
 
 rule_t parse_rule(char *src)
 {
@@ -44,11 +42,9 @@ array_t check(const rule_t *rules, const rule_t *rule, const char *src)
     return res;
   }
 
-  // loop over all the options
   for (int i = 0; i < rule->options; i++)
   {
-    //const char *copy = src;
-    const char *copies[256] = {src};
+    const char *copies[8] = {src};
     int len = 1;
 
     for (int j = 0; j < rule->len; j++)
@@ -67,7 +63,7 @@ array_t check(const rule_t *rules, const rule_t *rule, const char *src)
         // optimise: check we still have some copies
         if (nlen == 0) goto end;
 
-        const char *new_copies[256] = {};
+        const char *new_copies[8] = {};
         len = 0;
 
         // find if copy can be continued
@@ -78,13 +74,11 @@ array_t check(const rule_t *rules, const rule_t *rule, const char *src)
             new_copies[len++] = sub.end[l];
         }
 
-        // copy copies back to original array
         for (int k = 0; k < len; k++)
           copies[k] = new_copies[k];
       }
     }
 
-    // copy over copies into result
     for (int k = 0; k < len; k++) {
       res.end[res.len++] = copies[k];
     }
@@ -104,21 +98,18 @@ int main()
 
   while (fgets(buffer, sizeof buffer, stdin) != NULL)
   {
-    if (buffer[0] == '\n')
-    {
+    if (buffer[0] == '\n') {
       parsing = 0;
       continue;
     }
 
-    if (parsing)
-    {
+    if (parsing) {
       int ptr, n;
       sscanf(buffer, "%d: %n", &ptr, &n);
       rules[ptr] = parse_rule(buffer + n);
     }
 
-    else
-    {
+    else {
       array_t res = check(rules, &rules[0], buffer);
       ans += res.len > 0 && *res.end[0] == '\n';
     }
