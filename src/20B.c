@@ -2,7 +2,7 @@
 #import <string.h>
 
 const int size = 10;
-typedef enum {LEFT, RIGHT, TOP, BOTTOM} dir_t; 
+typedef enum {LEFT, RIGHT, TOP, BOTTOM} dir_t;
 
 typedef struct {char grid[size][size]; int id;} tile_t;
 typedef struct {unsigned int masks[4], matches, nbors[4];} edges_t;
@@ -40,10 +40,10 @@ edges_t get_edges(tile_t *tile)
     unsigned int mask = 1 << i;
     if (tile->grid[i][0] == '#') edges.masks[LEFT] |= mask;
     if (tile->grid[i][9] == '#') edges.masks[RIGHT] |= mask;
-  } 
+  }
 
   for (int j = 0; j < size; j++) {
-    unsigned int mask = 1 << j; 
+    unsigned int mask = 1 << j;
     if (tile->grid[0][j] == '#') edges.masks[TOP] |= mask;
     if (tile->grid[9][j] == '#') edges.masks[BOTTOM] |= mask;
   }
@@ -141,7 +141,7 @@ void solve(int side, int grid[side][side], tile_t tiles[], edges_t edges[], int 
        left = (j == 0) ? -1 : grid[i][j - 1];
 
   // orientate tile to loosely match these conditions
-  while (!((edges[k].nbors[LEFT] == left && edges[k].nbors[TOP] == above) || 
+  while (!((edges[k].nbors[LEFT] == left && edges[k].nbors[TOP] == above) ||
            (edges[k].nbors[LEFT] == above && edges[k].nbors[TOP] == left)))
   {
     tiles[k] = rotate_tile(&tiles[k]);
@@ -221,7 +221,7 @@ int main()
   tile_t tiles[len];
   edges_t edges[len];
 
-  // get all tiles and pre-compute edges 
+  // get all tiles and pre-compute edges
   for (int i = 0; i < len; i++)
   {
     tiles[i] = parse_tile();
@@ -241,7 +241,7 @@ int main()
 
   // flatten puzzle pieces in grid
   const int puzzle_size = side * (size - 2);
-  char puzzle[puzzle_size][puzzle_size] = {}; 
+  char puzzle[puzzle_size][puzzle_size] = {};
 
   for (int i = 0; i < side; i++) {
     for (int j = 0; j < side; j++) {
