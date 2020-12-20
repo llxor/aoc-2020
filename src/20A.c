@@ -3,7 +3,7 @@
 
 const int size = 10;
 
-typedef struct {char grid[size][size]; int n;} tile_t;
+typedef struct {char grid[size][size]; int id;} tile_t;
 typedef struct {unsigned int masks[4], matches;} edges_t;
 
 unsigned int reverse(unsigned int mask) {
@@ -18,7 +18,7 @@ tile_t parse_tile()
   char buffer[100] = {};
   fgets(buffer, sizeof buffer, stdin);
 
-  sscanf(buffer, "Tile %d:", &tile.n);
+  sscanf(buffer, "Tile %d:", &tile.id);
   for (int i = 0; i < size; i++) {
     fgets(buffer, sizeof buffer, stdin);
     strncpy(tile.grid[i], buffer, size);
@@ -85,9 +85,8 @@ int main()
   unsigned long ans = 1;
 
   for (int i = 0; i < len; i++) {
-    printf("%d\n", edges[i].matches);
     if (edges[i].matches == 2) {
-      ans *= tiles[i].n;
+      ans *= tiles[i].id;
     }
   }
 
