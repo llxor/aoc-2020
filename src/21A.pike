@@ -5,6 +5,7 @@ int main()
     string input = stdin->read();
     array lines = input / "\n";
     lines = lines[0..sizeof(lines)-2]; // remove last trailing \n
+
     mapping table = ([]);
     mapping count = ([]);
     array all = ({});

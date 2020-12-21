@@ -47,5 +47,5 @@ int main()
         ans += "," + table[key][0];
     }
 
-    write("%s\n", ans[1..]);
+    write("%s\n", ans[1..]); // remove first ,
 }
