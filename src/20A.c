@@ -36,13 +36,13 @@ edges_t get_edges(tile_t *tile)
   edges_t edges = {};
 
   for (int i = 0; i < size; i++) {
-    unsigned int mask = 1 << i; 
+    unsigned int mask = 1 << i;
     if (tile->grid[i][0] == '#') edges.masks[0] |= mask;
     if (tile->grid[i][9] == '#') edges.masks[1] |= mask;
-  } 
+  }
 
   for (int j = 0; j < size; j++) {
-    unsigned int mask = 1 << j; 
+    unsigned int mask = 1 << j;
     if (tile->grid[0][j] == '#') edges.masks[2] |= mask;
     if (tile->grid[9][j] == '#') edges.masks[3] |= mask;
   }
@@ -57,7 +57,7 @@ int main()
   tile_t tiles[len];
   edges_t edges[len];
 
-  // get all tiles and pre-compute edges 
+  // get all tiles and pre-compute edges
   for (int i = 0; i < len; i++)
   {
     tiles[i] = parse_tile();
