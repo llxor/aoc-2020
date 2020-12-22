@@ -1,10 +1,12 @@
 # AOC 2020
-Days 14, 15, 16 and 21 are written in [Pike](https://pike.lysator.liu.se/). Run a program using:
+These are my personal solutions to the Advent of Code 2020 problems. Each problem consists of two parts, which are denoted as parts A and B in this repo.
+
+Days (14,15,16,21) are written in [Pike](https://pike.lysator.liu.se/). Run a program using:
 ```
 $ pike src/14A.pike < input/14
 ```
 
-The rest are written in pure C. Run a program using:
+The rest are written in [C](https://en.wikipedia.org/wiki/C_(programming_language)). Run a program using:
 ```
 $ clang src/01A.c
 $ ./a.out < input/01
