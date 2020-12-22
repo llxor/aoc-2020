@@ -15,11 +15,9 @@ $ clang src/01B.c
 $ ./a.out < input/01
 ```
 
-(exception: Day 19 has only one C file and two separate inputs
+(**exception**: Day 19 has only one C file and two separate inputs)
 ```
 $ clang src/19.c
 $ ./a.out < input/19A
 $ ./a.out < input/19B
 ```
-)
-
