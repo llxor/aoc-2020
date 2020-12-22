@@ -33,8 +33,7 @@ int find_winner(stack_t player1, stack_t player2, int p1, int p2, stack_t *root)
             card2 = player2.cards[player2.start++],
               key = (card1 << 6) | card2, p1;
 
-        // if same two cards are drawn 3 times we are in an infinite loop
-        if (loop[key] == 3) return 1;
+        if (loop[key] == 4) return 1;
         loop[key]++;
 
         player1.len--;
