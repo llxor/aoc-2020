@@ -5,7 +5,7 @@ typedef struct {char cards[10000]; int start, len;} stack_t;
 stack_t parse_stack()
 {
     stack_t res = {};
-    char buffer[1000] ={};
+    char buffer[1000] = {};
     int tmp;
 
     fgets(buffer, sizeof buffer, stdin); // skip player line
@@ -19,6 +19,7 @@ stack_t parse_stack()
 
     return res;
 }
+
 
 int find_winner(stack_t player1, stack_t player2, int p1, int p2, stack_t *root)
 {
@@ -39,13 +40,10 @@ int find_winner(stack_t player1, stack_t player2, int p1, int p2, stack_t *root)
         player1.len--;
         player2.len--;
 
-        if (player1.len >= card1 && player2.len >= card2) {
+        if (player1.len >= card1 && player2.len >= card2)
             p1 = find_winner(player1, player2, card1, card2, NULL);
-        }
-
-        else {
+        else
             p1 = card1 > card2;
-        }
 
         stack_t *winner = p1 ? &player1 : &player2;
         winner->cards[winner->start + winner->len++] = p1 ? card1 : card2;
@@ -61,10 +59,10 @@ int main()
 {
     stack_t player1 = parse_stack(),
             player2 = parse_stack(),
-            winner = {};
+            winner;
 
-    int ans = 0;
     find_winner(player1, player2, -1, -1, &winner);
+    int ans = 0;
 
     for (int i = 0; i < winner.len; i++)
         ans += (winner.len - i) * winner.cards[winner.start + i];
