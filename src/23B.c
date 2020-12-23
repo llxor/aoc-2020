@@ -18,6 +18,7 @@ int main()
     for (int i = len + 1; i < length; i++) ll[i] = i + 1;
     ll[length] = input[0];
 
+    // start solving
     int current = input[0];
 
     for (int i = 0; i < 10000000; i++)
