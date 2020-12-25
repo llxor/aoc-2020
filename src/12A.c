@@ -1,5 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
+#import <stdio.h>
+#import <stdlib.h>
 
 int main()
 {
@@ -20,7 +20,7 @@ int main()
       case 'W': { W: X -= N; break; }
       case 'L': { D = (4 + (D - N / 90)) % 4; break; }
       case 'R': { D = (4 + (D + N / 90)) % 4; break; }
-      case 'F': { 
+      case 'F': {
         switch (D) {
           case NORTH: { goto N; }
           case  EAST: { goto E; }

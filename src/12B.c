@@ -1,5 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
+#import <stdio.h>
+#import <stdlib.h>
 
 int main()
 {
@@ -25,7 +25,7 @@ int main()
     }
 
     int NX = WX * cos[angle] - WY * sin[angle],
-        NY = WX * sin[angle] + WY * cos[angle]; 
+        NY = WX * sin[angle] + WY * cos[angle];
 
     WX = NX, WY = NY;
   }
