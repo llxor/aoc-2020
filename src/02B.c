@@ -1,6 +1,7 @@
-#include <stdio.h>
+#import <stdio.h>
 
-int main() {
+int main()
+{
   int min, max, count = 0;
   char c, password[100] = {};
   char buffer[1000] = {};
