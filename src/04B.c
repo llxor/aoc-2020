@@ -1,7 +1,7 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <lib.h>
+#import <stdio.h>
+#import <stdlib.h>
+#import <string.h>
+#import <lib.h>
 
 int valid_height(int v, char *suffix) {
   if (strcmp(suffix, "cm") == 0) { return 150 <= v && v <= 193; }
@@ -9,18 +9,20 @@ int valid_height(int v, char *suffix) {
   return 0;
 }
 
+
 int valid_hair_color(char *str) {
   if (strlen(str) != 7) return 0;
   if (str[0] != '#') return 0;
-  
+
   for (int i = 1; i < 7; i++) {
-    if (!('0' <= str[i] && str[i] <= '9') && 
+    if (!('0' <= str[i] && str[i] <= '9') &&
         !('a' <= str[i] && str[i] <= 'f'))
         return 0;
   }
 
   return 1;
 }
+
 
 int valid_eye_color(char *str) {
   return strcmp(str, "amb") == 0 ||
@@ -32,7 +34,9 @@ int valid_eye_color(char *str) {
          strcmp(str, "oth") == 0;
 }
 
-int main() {
+
+int main()
+{
   char buffer[1000] = "";
   char passport[1000] = "";
   int count = 0, exit = 0;
@@ -69,12 +73,12 @@ int main() {
         int v = strtol(tokens[i + 1], &rest, 10);
 
              if (tok_equals("cid") && length == 14) clear_flag
-        else if (tok_equals("byr") && !in_range(1920, 2002)) clear_flag
-        else if (tok_equals("iyr") && !in_range(2010, 2020)) clear_flag
-        else if (tok_equals("eyr") && !in_range(2020, 2030)) clear_flag
-        else if (tok_equals("hgt") && !valid_height(v, rest)) clear_flag
+        else if (tok_equals("byr") && !in_range(1920, 2002))   clear_flag
+        else if (tok_equals("iyr") && !in_range(2010, 2020))   clear_flag
+        else if (tok_equals("eyr") && !in_range(2020, 2030))   clear_flag
+        else if (tok_equals("hgt") && !valid_height(v, rest))  clear_flag
         else if (tok_equals("hcl") && !valid_hair_color(rest)) clear_flag
-        else if (tok_equals("ecl") && !valid_eye_color(rest)) clear_flag
+        else if (tok_equals("ecl") && !valid_eye_color(rest))  clear_flag
         else if (tok_equals("pid") && !(strlen(tokens[i+1]) == 9 && *rest == '\0')) clear_flag
       }
 

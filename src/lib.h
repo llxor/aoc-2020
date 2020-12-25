@@ -1,4 +1,4 @@
-#include "stddef.h"
+#import "stddef.h"
 
 // checks strings a and b for equality
 int streql(const char *a, const char *b)

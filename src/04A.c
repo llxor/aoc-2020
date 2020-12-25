@@ -1,10 +1,11 @@
-#include <stdio.h>
-#include <string.h>
-#include <lib.h>
+#import <stdio.h>
+#import <string.h>
+#import <lib.h>
 
-int main() {
-  char buffer[1000] = "";
-  char passport[1000] = "";
+int main()
+{
+  char buffer[1000] = {};
+  char passport[1000] = {};
   int count = 0, exit = 0;
 
   while (!exit) {
