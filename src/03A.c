@@ -1,5 +1,5 @@
-#include <stdio.h>
-#include <string.h>
+#import <stdio.h>
+#import <string.h>
 
 int main()
 {
