@@ -6,8 +6,8 @@ int main()
 
     while (1) {
         scanf("%d", &val);
-        if (array[val]) break;
-        array[2020 - val] = 1;
+        if (array[2020 - val]) break;
+        array[val] = 1;
     }
 
     printf("%d\n", val * (2020 - val));

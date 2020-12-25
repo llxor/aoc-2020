@@ -1,21 +1,23 @@
 #include <stdio.h>
 
-int main() {
-  const int N = 200;
-  int array[N] = {};
+int main()
+{
+    int val, len = 0, nums[200], array[2020] = {};
 
-  for (int i = 0; i < N; i++) {
-    scanf("%d", &array[i]);
-  }
+    while (1) {
+        scanf("%d", &val);
 
-  for (int i = 0; i < N; i++) {
-    for (int j = i + 1; j < N; j++) {
-      for (int k = j + 1; k < N; k++) {
-        if (array[i] + array[j] + array[k] == 2020) {
-          printf("%d\n", array[i] * array[j] * array[k]);
-          return 0;
+        for (int i = 0; i < len; i++)
+        {
+            int target = 2020 - val - nums[i];
+
+            if (target > 0 && array[target]) {
+                printf("%d\n", val * nums[i] * target);
+                return 0;
+            }
         }
-      }
+
+        array[val] = 1;
+        nums[len++] = val;
     }
-  }
 }
