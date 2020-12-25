@@ -1,6 +1,6 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#import <stdio.h>
+#import <stdlib.h>
+#import <string.h>
 
 typedef enum {JMP, ACC, NOP} op_t;
 typedef struct {op_t op; int value;} instr_t;
@@ -8,8 +8,8 @@ typedef struct {op_t op; int value;} instr_t;
 int main()
 {
   char buffer[1000];
-  instr_t instructions[1000];
   size_t len = 0;
+  instr_t instructions[1000];
 
   while (fgets(buffer, sizeof buffer, stdin) != NULL)
   {
@@ -42,12 +42,12 @@ int main()
 
       switch (instr.op)
       {
-        case ACC: 
+        case ACC:
           acc += instr.value;
           ptr++;
           break;
 
-        case JMP: 
+        case JMP:
           ptr += instr.value;
           break;
 
