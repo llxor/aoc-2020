@@ -1,5 +1,5 @@
-#include <stdio.h>
-#include <string.h>
+#import <stdio.h>
+#import <string.h>
 
 int main()
 {
@@ -35,14 +35,14 @@ int main()
             flip[i][j] = (change = 1);
           }
 
-          // greater than 4 to include the occupied seat itself 
+          // greater than 4 to include the occupied seat itself
           else if (adjacent > 4 && is_occupied) {
             flip[i][j] = (change = 1);
           }
         }
       }
     }
-    
+
     for (int i = 0; i < height; i++) {
       for (int j = 0; j < width; j++) {
         if (flip[i][j]) {

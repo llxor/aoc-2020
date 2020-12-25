@@ -12,3 +12,5 @@ The following programs where compiled using the zig compiler using -O3. Timings 
 |   7 |    004 |    004 |
 |   8 |    002 |    002 |
 |   9 |    002 |    002 |
+|  10 |    002 |    002 |
+|  11 |    017 |    025 |

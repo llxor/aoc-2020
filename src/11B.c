@@ -1,5 +1,5 @@
-#include <stdio.h>
-#include <string.h>
+#import <stdio.h>
+#import <string.h>
 
 int main()
 {
@@ -32,8 +32,8 @@ int main()
 
               while ((0 <= tx && tx < height) && (0 <= ty && ty < width)) {
                 if (grid[x][y] == '.') {
-                  x += dx; 
-                  y += dy; 
+                  x += dx;
+                  y += dy;
                 }
 
                 else {
@@ -48,14 +48,14 @@ int main()
             flip[i][j] = (change = 1);
           }
 
-          // greater than 5 to include the occupied seat itself 
+          // greater than 5 to include the occupied seat itself
           else if (adjacent > 5 && is_occupied) {
             flip[i][j] = (change = 1);
           }
         }
       }
     }
-    
+
     for (int i = 0; i < height; i++) {
       for (int j = 0; j < width; j++) {
         if (flip[i][j]) {

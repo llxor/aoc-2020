@@ -1,5 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
+#import <stdio.h>
+#import <stdlib.h>
 
 char saved[1000] = {};
 size_t table[1000] = {};
@@ -29,6 +29,7 @@ size_t combinations(int array[], int len)
   return (table[v] = total);
 }
 
+
 int main()
 {
   char buffer[1000] = {};
@@ -40,5 +41,5 @@ int main()
   }
 
   qsort(numbers, len, sizeof *numbers, strcmp);
-  printf("%zu\n", combinations(numbers, len)); 
+  printf("%zu\n", combinations(numbers, len));
 }

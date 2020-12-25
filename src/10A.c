@@ -1,6 +1,6 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#import <stdio.h>
+#import <stdlib.h>
+#import <string.h>
 
 int main()
 {
