@@ -1,7 +1,8 @@
-#include <stdio.h>
-#include <string.h>
+#import <stdio.h>
+#import <string.h>
 
-int binary_search(const char *code, size_t len, const char *key) {
+int binary_search(const char *code, size_t len, const char *key)
+{
   char lower = key[0], upper = key[1];
   int min = 0, max = (1 << len) - 1;
 
@@ -14,10 +15,12 @@ int binary_search(const char *code, size_t len, const char *key) {
   return min;
 }
 
-int main() {
+
+int main()
+{
+  const int N = 859, len = 1024;
   char buffer[100] = {};
-  int table[1024] = {};
-  int N = 859, len = sizeof table / sizeof table[0];
+  int table[len] = {};
 
   for (int i = 0; i < N; i++) {
     fgets(buffer, sizeof buffer, stdin);
