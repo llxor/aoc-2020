@@ -1,5 +1,5 @@
-#include <stdio.h>
-#include <lib.h>
+#import <stdio.h>
+#import <lib.h>
 
 typedef struct {size_t key; size_t n; struct {int n; size_t key;} inner[100];} entry_t;
 
@@ -21,7 +21,8 @@ int solve(size_t key, entry_t *table, size_t len)
   return -1;
 }
 
-int main() 
+
+int main()
 {
   char buffer[1000] = {};
   entry_t table[1000] = {};
@@ -29,8 +30,8 @@ int main()
 
   while (fgets(buffer, sizeof buffer, stdin) != NULL)
   {
-    char *words[100] = {};
-    size_t len = sizeof words / sizeof words[0];
+    const int len = 100;
+    char *words[len] = {};
 
     size_t _ = split_by_str(words, len, buffer, " bags contain ");
     size_t n = split_by_str(words + 1, len - 1, words[1], ", ");

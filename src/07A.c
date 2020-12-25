@@ -1,9 +1,9 @@
-#include <stdio.h>
-#include <lib.h>
+#import <stdio.h>
+#import <lib.h>
 
 typedef struct {size_t key; size_t n; struct {int n; size_t key;} inner[100];} entry_t;
 
-int main() 
+int main()
 {
   char buffer[1000] = {};
   entry_t table[1000] = {};
@@ -11,15 +11,13 @@ int main()
 
   while (fgets(buffer, sizeof buffer, stdin) != NULL)
   {
-    char *words[100] = {};
-    size_t len = sizeof words / sizeof words[0];
+    const int len = 100;
+    char *words[len] = {};
 
     size_t _ = split_by_str(words, len, buffer, " bags contain ");
     size_t n = split_by_str(words + 1, len - 1, words[1], ", ");
 
-    if (streql(words[1], "no other bags.\n")) {
-      n = 0;
-    }
+    if (streql(words[1], "no other bags.\n")) n = 0;
 
     char adj[100] = {};
     char color[100] = {};
@@ -59,7 +57,7 @@ int main()
           for (size_t k = 0; k < cache_len; k++) // for each target color
             if (entry.inner[j].key == cache[k])
             {
-              cache[cache_len++] = entry.key; 
+              cache[cache_len++] = entry.key;
               success[i] = 1;
               goto next;
             }
