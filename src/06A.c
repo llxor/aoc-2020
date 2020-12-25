@@ -1,7 +1,8 @@
-#include <stdio.h>
-#include <string.h>
+#import <stdio.h>
+#import <string.h>
 
-int main() {
+int main()
+{
   char buffer[30] = {};
   char group[1000] = {};
   int sum = 0, exit = 0;

@@ -1,7 +1,8 @@
-#include <stdio.h>
-#include <string.h>
+#import <stdio.h>
+#import <string.h>
 
-int main() {
+int main()
+{
   char buffer[30] = {};
   char group[1000] = {};
   int sum = 0, exit = 0;;
@@ -12,7 +13,7 @@ int main() {
     if (buffer[0] == '\n' || exit) {
       int table = (1 << 26) - 1;
       int mask = 0;
-      
+
       for (char *s = group; *s != '\0'; s++) {
         if (*s == '\n') {
           table &= mask;
