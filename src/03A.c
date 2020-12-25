@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <string.h>
 
-int main() {
-  int depth = 323;
+int main()
+{
+  const int depth = 323;
   char grid[depth][100];
 
   for (int i = 0; i < depth; i++) {
