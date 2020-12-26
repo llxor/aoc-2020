@@ -16,3 +16,4 @@ $ ./a.out < input/01
 - Day 15 has only one C file and no input file
 - Day 19 has only one C file and two separate input files
 - Day 23 has no input file
+- Day 25 has no input file
