@@ -1,13 +1,15 @@
 #import <stdio.h>
-#import <assert.h>
+
+const int prime = 20201227;
 
 int loop_size(int target)
 {
     int val = 1, loop = 0;
 
-    while (val != target) {
+    while (val != target)
+    {
         val *= 7;
-        val %= 20201227;
+        val %= prime;
         loop++;
     }
 
@@ -15,29 +17,25 @@ int loop_size(int target)
 }
 
 
-int loop_from(int s, int n)
+int loop_from(long s, int n)
 {
-    unsigned long val = 1;
+    long k, v = 1;
 
-    for (int i = 0; i < n; i++) {
-        val *= s;
-        val %= 20201227;
+    while (n != 0)
+    {
+        k = (n & 1) ? s : 1;
+        v = v * k % prime;
+        s = s * s % prime;
+        n >>= 1;
     }
 
-    return val;
+    return v;
 }
 
 
 int main()
 {
     int keys[2] = {2959251, 4542595};
-
-    int card_loop = loop_size(keys[0]),
-        door_loop = loop_size(keys[1]);
-
-    int key1 = loop_from(keys[1], card_loop),
-        key2 = loop_from(keys[0], door_loop);
-
-    assert(key1 == key2 && "keys do not match");
-    printf("%d\n", key1);
+    int loop = loop_size(keys[0]);
+    printf("%d\n", loop_from(keys[1], loop));
 }
