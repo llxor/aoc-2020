@@ -5,8 +5,7 @@ int loop_size(int target)
 {
     int val = 1, loop = 0;
 
-    while (val != target)
-    {
+    while (val != target) {
         val *= 7;
         val %= 20201227;
         loop++;
@@ -20,8 +19,7 @@ int loop_from(int s, int n)
 {
     unsigned long val = 1;
 
-    for (int i = 0; i < n; i++)
-    {
+    for (int i = 0; i < n; i++) {
         val *= s;
         val %= 20201227;
     }
@@ -32,10 +30,7 @@ int loop_from(int s, int n)
 
 int main()
 {
-    int keys[2] = {};
-
-    for (int i = 0; i < 2; i++)
-        scanf("%d", &keys[i]);
+    int keys[2] = {2959251, 4542595};
 
     int card_loop = loop_size(keys[0]),
         door_loop = loop_size(keys[1]);
