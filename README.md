@@ -1,5 +1,5 @@
 # AOC 2020
-These are my solutions to the Advent of Code 2020 problems. Each problem consists of two parts, (denoted as A and B), and a single input file.
+These are my solutions to the [Advent of Code 2020](https://adventofcode.com/2020) problems. Each problem consists of two parts, (denoted as A and B), and a single input file.
 
 Days 16 and 21 are written in [Pike](https://pike.lysator.liu.se/). Run a program using:
 ```
