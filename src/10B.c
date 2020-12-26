@@ -1,5 +1,6 @@
 #import <stdio.h>
 #import <stdlib.h>
+#import <string.h>
 
 char saved[1000] = {};
 size_t table[1000] = {};
@@ -18,11 +19,8 @@ size_t combinations(int array[], int len)
   }
 
   for (int i = 1; i < len; i++) {
-    if (array[i] - v <= 3) {
-      total += combinations(&array[i], len - i);
-    } else {
-      break;
-    }
+    if (array[i] - v > 3) break;
+    total += combinations(&array[i], len - i);
   }
 
   saved[v] = 1;
