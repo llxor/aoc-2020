@@ -4,29 +4,24 @@ const int prime = 20201227;
 
 int loop_size(int target)
 {
-    int val = 1, loop = 0;
+    int loop = 0;
 
-    while (val != target)
-    {
-        val *= 7;
-        val %= prime;
-        loop++;
+    for (int val = 1; val != target; loop++) {
+        val = val * 7 % prime;
     }
 
     return loop;
 }
 
 
-int loop_from(long s, int n)
+int loop_from(long s, int l)
 {
     long k, v = 1;
 
-    while (n != 0)
-    {
+    for (int n = l; n != 0; n >>= 1) {
         k = (n & 1) ? s : 1;
         v = v * k % prime;
         s = s * s % prime;
-        n >>= 1;
     }
 
     return v;
