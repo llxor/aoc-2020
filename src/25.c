@@ -16,11 +16,11 @@ int loop_size(int target)
 
 int loop_from(long s, int l)
 {
-    long k, v = 1;
+    long v = 1;
 
     for (int n = l; n != 0; n >>= 1) {
-        k = (n & 1) ? s : 1;
-        v = v * k % prime;
+        if (n & 1)
+        v = v * s % prime;
         s = s * s % prime;
     }
 
