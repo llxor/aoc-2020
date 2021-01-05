@@ -1,5 +1,5 @@
 # Benchmarks:
-The following programs where compiled using the zig compiler using -O3. Timings were recorded using the Linux `time` command and are in **milliseconds**.
+The following programs where compiled using the clang LLVM compiler using -O3. Timings were recorded using the Linux `time` command and are in **milliseconds**.
 
 | Day | Part 1 | Part 2 |
 |----:|-------:|-------:|
