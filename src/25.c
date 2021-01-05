@@ -1,18 +1,8 @@
 #import <stdio.h>
+#import <math.h>
 
 const int prime = 20201227;
-
-int loop_size(int target)
-{
-    int loop = 0;
-
-    for (int val = 1; val != target; loop++) {
-        val = val * 7 % prime;
-    }
-
-    return loop;
-}
-
+int table[prime] = {};
 
 int loop_from(long s, int l)
 {
@@ -27,6 +17,24 @@ int loop_from(long s, int l)
     return v;
 }
 
+int loop_size(int target)
+{
+    int a = 7, b = target, n = sqrt(prime) + 1;
+
+    for (int p = 1; p <= n; p++) {
+        int index = loop_from(a,p*n);
+        table[index] = p;
+    } 
+
+    for (int q = 0; q <= n; q++) {
+        int t = (long) loop_from(a,q) * b % prime;
+        if (table[t]) {
+            return table[t] * n - q;
+        }
+    }
+
+    return -1;
+}
 
 int main()
 {

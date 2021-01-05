@@ -8,7 +8,7 @@ $ pike src/16A.pike < input/16
 
 The rest are written in [C](https://en.wikipedia.org/wiki/C_(programming_language)). Run a program using:
 ```
-$ clang src/01A.c [optional: -O3] [-Isrc (for days 4 and 7)]
+$ clang src/01A.c [optional: -O3] [-Isrc (for days 4 and 7)] [-lm (for day 25)]
 $ ./a.out < input/01
 ```
 
