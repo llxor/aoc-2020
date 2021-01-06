@@ -23,7 +23,7 @@ The following programs where compiled using the clang LLVM compiler using -O3. T
 |  18 |    002 |    002 |
 |  19 |    005 |    027 |
 |  20 |    002 |    003 |
-|  21 |      - |      - |
+|  21 |    002 |      - |
 |  22 |    002 |    009 |
 |  23 |    001 |    432 |
 |  24 |    002 |    020 |
