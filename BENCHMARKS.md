@@ -18,7 +18,7 @@ The following programs where compiled using the clang LLVM compiler using -O3. T
 |  13 |    002 |    002 |
 |  14 |    002 |    009 |
 |  15 |    002 |    767 |
-|  16 |    001 |      - |
+|  16 |    001 |    005 |
 |  17 |    002 |    010 |
 |  18 |    002 |    002 |
 |  19 |    005 |    027 |
