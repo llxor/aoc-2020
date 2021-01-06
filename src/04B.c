@@ -1,7 +1,7 @@
 #import <stdio.h>
 #import <stdlib.h>
 #import <string.h>
-#import <lib.c>
+#import <lib.h>
 
 int valid_height(int v, char *suffix) {
   if (strcmp(suffix, "cm") == 0) { return 150 <= v && v <= 193; }

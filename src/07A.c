@@ -1,5 +1,5 @@
 #import <stdio.h>
-#import <lib.c>
+#import <lib.h>
 
 typedef struct {size_t key; size_t n; struct {int n; size_t key;} inner[100];} entry_t;
 
