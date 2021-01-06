@@ -21,8 +21,8 @@ int indexOf(struct array arr, char *item) {
   return -1;
 }
 
-void flatten(struct array alle[N], struct array *all) {
-   for (int i = 0; i < N; i++) {
+void flatten(int len, struct array alle[len], struct array *all) {
+   for (int i = 0; i < len; i++) {
     for (int j = 0; j < alle[i].len; j++) {
       char *word = alle[i].words[j], found = 0;
 
@@ -80,12 +80,12 @@ int main() {
     alle[i].len = split_by_str(alle[i].words, 100, allergens[i], ", ");
   }
 
-  flatten(alle, &all);
+  flatten(N, alle, &all);
   struct array table[8] = {};
   solve(ingr, alle, all, table);
 
   struct array must = {};
-  flatten(table, &must);
+  flatten(8, table, &must);
 
   int count = 0;
 
