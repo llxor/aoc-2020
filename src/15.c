@@ -28,5 +28,4 @@ int main() {
   }
 
   printf("%d\n", curr);
-  free(hist);
 }
