@@ -1,5 +1,5 @@
 # Benchmarks:
-The following programs where compiled using the clang LLVM compiler using -O3. Timings were recorded using the Linux `time` command and are in **milliseconds**. Total time to run all benchmarks: 1343ms
+The following programs where compiled using the clang LLVM compiler using -O3. Timings were recorded using the Linux `time` command and are in **milliseconds**. Total time to run all benchmarks: **1343ms**.
 
 | Day | Part 1 | Part 2 |
 |----:|-------:|-------:|
