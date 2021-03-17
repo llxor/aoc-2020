@@ -1,5 +1,5 @@
-#import <stdio.h>
-#import <lib.h>
+#include <stdio.h>
+#include <lib.h>
 
 const int N = 37;
 

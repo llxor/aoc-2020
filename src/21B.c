@@ -1,7 +1,7 @@
-#import <stdio.h>
-#import <stdlib.h>
-#import <string.h>
-#import <lib.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <lib.h>
 
 const int N = 37;
 

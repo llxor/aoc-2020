@@ -1,6 +1,6 @@
-#import <stdio.h>
-#import <stdlib.h>
-#import <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 typedef enum {JMP, ACC, NOP} op_t;
 typedef struct {op_t op; int value;} instr_t;

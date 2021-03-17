@@ -1,5 +1,5 @@
-#import <stdio.h>
-#import <string.h>
+#include <stdio.h>
+#include <string.h>
 
 int binary_search(const char *code, size_t len, const char *key)
 {

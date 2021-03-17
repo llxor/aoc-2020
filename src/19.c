@@ -1,5 +1,5 @@
-#import <stdio.h>
-#import <stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 typedef struct {unsigned char value, ptrs[2][3], options, len;} rule_t;
 typedef struct {const char *end[8]; char len;} array_t;

@@ -1,5 +1,5 @@
-#import <stdio.h>
-#import <stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 struct range {
   int a1, a2, b1, b2;

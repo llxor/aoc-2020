@@ -1,5 +1,5 @@
-#import <stdio.h>
-#import <string.h>
+#include <stdio.h>
+#include <string.h>
 
 const int size = 10;
 

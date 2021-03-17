@@ -1,4 +1,4 @@
-#import <stdio.h>
+#include <stdio.h>
 
 typedef struct {char cards[1000]; int start, len;} stack_t;
 

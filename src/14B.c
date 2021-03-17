@@ -1,5 +1,5 @@
-#import <stdio.h>
-#import <assert.h>
+#include <stdio.h>
+#include <assert.h>
 
 typedef struct {long keys[100], values[100], len;} entry_t;
 const long size = (1 << 12);

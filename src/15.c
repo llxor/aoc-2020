@@ -1,5 +1,5 @@
-#import <stdio.h>
-#import <stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 // change to 2020 for part 1
 const int size = 30000000;

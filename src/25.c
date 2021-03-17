@@ -1,5 +1,5 @@
-#import <stdio.h>
-#import <math.h>
+#include <stdio.h>
+#include <math.h>
 
 const int prime = 20201227;
 int table[prime] = {};

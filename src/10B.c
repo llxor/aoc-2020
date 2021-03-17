@@ -1,6 +1,6 @@
-#import <stdio.h>
-#import <stdlib.h>
-#import <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 char saved[1000] = {};
 size_t table[1000] = {};
