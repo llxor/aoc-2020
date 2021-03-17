@@ -1,0 +1,7 @@
+                                    aoc2020
+
+my personal solutions to advent of code 2020. each problem consists of two
+parts (a and b), and a single input file. all solutions are written in c and
+can be compiled using:
+
+clang src/[file].c -O3 [-Isrc (4,7,21)] [-lm (25)]
